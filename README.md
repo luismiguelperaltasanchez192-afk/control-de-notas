@@ -32,14 +32,17 @@ El despliegue final de la información se genera directamente en la consola del 
 A continuación se anexan las capturas de pantalla de la consola del sistema durante la ejecución real del programa :
 
 #### 1. Proceso de Entrada de Datos en Consola
-* (Borra este texto y arrastra / pega aquí tu primera captura, donde pusiste el '2' y llenaste los datos de Penencio y Bulbania) *
+<img width="359" height="231" alt="image" src="https://github.com/user-attachments/assets/7937ca82-4246-4330-a871-20944af517cf" />
+
+
 
 #### 2. Visualización de la Tabla de Resultados Formateada
-* (Borra este texto y arrastra / pega aquí tu segunda captura, donde se ve la tabla final con los promedios y los estatus) *
+<img width="526" height="329" alt="image" src="https://github.com/user-attachments/assets/040e1f1b-e0f2-4a6e-9d72-d315d177fd5c" />
+
 
 -- -
 
 ## 👥 Integrantes del Grupo
 * Luis Miguel Peralta Sánchez
-* *Nombre del Integrante 2 *
-**Nombre del Integrante 3 *
+* Cesar Garcia *
+ * Roderick adonias foe *
