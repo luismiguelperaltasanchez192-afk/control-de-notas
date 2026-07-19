@@ -1,7 +1,86 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-    <Platform Name="x86" />
-  </Configurations>
-  <Project Path="controlNotasEstudiantes/controlNotasEstudiantes.vcxproj" />
-</Solution>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <iomanip>
+
+using namespace std;
+
+// Estructura para almacenar de forma organizada los datos de cada estudiante
+struct Estudiante {
+    string nombre;
+    double nota1, nota2, nota3, nota4;
+    double promedio;
+    string estatus;
+};
+
+int main() {
+    int cantidadEstudiantes;
+    vector<Estudiante> listaEstudiantes;
+
+    cout << "=== SISTEMA DE CALIFICACIONES INTERACTIVO ===" << endl;
+    cout << "Introduce la cantidad de estudiantes a registrar: ";
+    cin >> cantidadEstudiantes;
+    cin.ignore(); // Limpiar el buffer de entrada
+
+    // Bucle para capturar los datos de n estudiantes
+    for (int i = 0; i < cantidadEstudiantes; i++) {
+        Estudiante est;
+        cout << "\n--------------------------------------------" << endl;
+        cout << "Estudiante #" << (i + 1) << endl;
+        cout << "Nombre completo: ";
+        getline(cin, est.nombre);
+
+        cout << "Introduce Nota 1: ";
+        cin >> est.nota1;
+        cout << "Introduce Nota 2: ";
+        cin >> est.nota2;
+        cout << "Introduce Nota 3: ";
+        cin >> est.nota3;
+        cout << "Introduce Nota 4: ";
+        cin >> est.nota4;
+        cin.ignore(); // Limpiar el buffer para el siguiente nombre
+
+        // Cálculo del promedio matemático
+        est.promedio = (est.nota1 + est.nota2 + est.nota3 + est.nota4) / 4.0;
+
+        // Determinación del estatus académico (Sabiendo que se aprueba con 70 o más)
+        if (est.promedio >= 70.0) {
+            est.estatus = "Aprobado";
+        } else {
+            est.estatus = "Reprobado";
+        }
+
+        // Guardar el estudiante en la lista
+        listaEstudiantes.push_back(est);
+    }
+
+    // IMPRESIÓN DE RESULTADOS USANDO TABULACIÓN (\t) EN FORMA DE TABLA
+    cout << "\n\n=========================================================================\n";
+    cout << "Estudiante\t\tNota 1\tNota 2\tNota 3\tNota 4\tpromedio\tEstatus\n";
+    cout << "=========================================================================\n";
+
+    // Configurar para mostrar dos decimales fijos en los promedios
+    cout << fixed << setprecision(2);
+
+    for (const auto& est : listaEstudiantes) {
+        // Ajuste de tabulación según el largo del nombre para evitar desalineación
+        if (est.nombre.length() < 8) {
+            cout << est.nombre << "\t\t\t";
+        } else if (est.nombre.length() < 16) {
+            cout << est.nombre << "\t\t";
+        } else {
+            cout << est.nombre << "\t";
+        }
+
+        // Mostrar las notas y los resultados calculados
+        cout << est.nota1 << "\t" 
+             << est.nota2 << "\t" 
+             << est.nota3 << "\t" 
+             << est.nota4 << "\t" 
+             << est.promedio << "\t\t" 
+             << est.estatus << "\n";
+    }
+    cout << "=========================================================================\n";
+
+    return 0;
+}
